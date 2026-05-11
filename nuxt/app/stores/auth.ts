@@ -9,12 +9,11 @@ export const useAuthStore = defineStore('auth', () => {
   const isAdmin = computed(() => utente.value?.ruolo === 'admin')
 
   async function login(email: string, password: string) {
-    const config = useRuntimeConfig()
-    const risposta = await $fetch<{ token: string; utente: Utente }>('/auth/login', {
-      baseURL: config.public.apiBase,
-      method: 'POST',
-      body: { email, password }
-    })
+    const { chiamata } = useApi()
+    const risposta = await chiamata<{ token: string; utente: Utente }>(
+      '/auth/login',
+      { method: 'POST', body: { email, password } }
+    )
     token.value = risposta.token
     utente.value = risposta.utente
     await navigateTo('/utenti')
