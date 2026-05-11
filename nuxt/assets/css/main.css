@@ -1,0 +1,156 @@
+:root {
+  --colore-primario: #3b82f6;
+  --colore-pericolo: #ef4444;
+  --colore-secondario: #f59e0b;
+  --sfondo: #f3f4f6;
+  --raggio: 8px;
+  --ombra: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: system-ui, sans-serif;
+  background: var(--sfondo);
+}
+
+.contenitore {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.card {
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: var(--raggio);
+  padding: 1rem;
+  margin-bottom: 1rem;
+  box-shadow: var(--ombra);
+}
+
+.btn-primario {
+  background: var(--colore-primario);
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: var(--raggio);
+  cursor: pointer;
+}
+
+.btn-secondario {
+  background: var(--colore-secondario);
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: var(--raggio);
+  cursor: pointer;
+}
+
+.btn-pericolo {
+  background: var(--colore-pericolo);
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: var(--raggio);
+  cursor: pointer;
+}
+
+.azioni {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+}
+
+.errore {
+  background: #fee2e2;
+  color: #991b1b;
+  padding: 0.75rem;
+  border-radius: var(--raggio);
+  margin-top: 0.5rem;
+}
+
+nav {
+  display: flex;
+  gap: 1rem;
+  background: var(--colore-primario);
+  padding: 1rem;
+  align-items: center;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+}
+
+nav a.router-link-active {
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #d1d5db;
+  border-radius: var(--raggio);
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+}
+
+form {
+  background: white;
+  padding: 1rem;
+  border-radius: var(--raggio);
+  margin-bottom: 1rem;
+  box-shadow: var(--ombra);
+}
+
+.paginazione {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+  margin: 1rem 0;
+}
+
+.breadcrumb {
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+  color: #6b7280;
+}
+
+.breadcrumb button {
+  background: none;
+  border: none;
+  color: var(--colore-primario);
+  cursor: pointer;
+  font-size: 0.9rem;
+  text-decoration: underline;
+}
+
+#statistiche {
+  text-align: right;
+  font-size: 0.85rem;
+  color: #6b7280;
+  margin-bottom: 0.75rem;
+}
+
+.login-container {
+  max-width: 400px;
+  margin: 4rem auto;
+  background: white;
+  padding: 2rem;
+  border-radius: var(--raggio);
+  box-shadow: var(--ombra);
+}
+
+.login-container h1 {
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
