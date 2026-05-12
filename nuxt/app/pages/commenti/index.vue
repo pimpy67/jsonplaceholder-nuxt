@@ -12,6 +12,7 @@
       :key="commento.id"
       :commento="commento"
       :mostra-post="!postIdFiltro"
+      :titolo-post="titoli[commento.postId]"
       @vedi-post="(id) => router.push({ path: '/commenti', query: { postId: id } })"
       @elimina="elimina"
     />
@@ -19,15 +20,23 @@
 </template>
 
 <script setup lang="ts">
+import type { Post, RispostaPaginata } from '~/types'
+
 const store = useCommentiStore()
 const router = useRouter()
 const route = useRoute()
+const titoli = ref<Record<number, string>>({})
 
 const postIdFiltro = computed(() =>
   route.query.postId ? Number(route.query.postId) : undefined
 )
 
-onMounted(() => store.carica(postIdFiltro.value))
+onMounted(async () => {
+  const { chiamata } = useApi()
+  const risposta = await chiamata<RispostaPaginata<Post>>('/post?limite=100')
+  titoli.value = Object.fromEntries(risposta.dati.map(p => [p.id, p.titolo]))
+  await store.carica(postIdFiltro.value)
+})
 
 watch(() => route.query.postId, (id) => store.carica(id ? Number(id) : undefined))
 

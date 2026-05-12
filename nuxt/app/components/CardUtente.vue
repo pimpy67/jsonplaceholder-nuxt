@@ -9,7 +9,7 @@
     <small>Creato il {{ formatData(utente.creatoIl) }}</small>
     <div class="azioni">
       <button class="btn-primario" @click="$emit('vedi-post', utente)">Vedi Post</button>
-      <button class="btn-secondario" @click="$emit('modifica', utente)">Modifica</button>
+      <button v-if="isAdmin || auth.utente?.id === utente.id" class="btn-secondario" @click="$emit('modifica', utente)">Modifica</button>
       <button v-if="isAdmin" class="btn-pericolo" @click="$emit('elimina', utente.id)">Elimina</button>
     </div>
   </div>
