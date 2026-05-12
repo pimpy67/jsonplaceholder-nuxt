@@ -4,6 +4,7 @@
       { label: 'Utenti', onClick: () => router.push('/utenti') },
       { label: `Post di utente #${userIdFiltro}` }
     ]" />
+    <Statistiche />
     <FormPost @salva="store.crea" />
     <CardPost
       v-for="post in store.lista"

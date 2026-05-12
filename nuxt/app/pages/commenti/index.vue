@@ -4,6 +4,7 @@
       { label: 'Post', onClick: () => router.push('/post') },
       { label: `Commenti del post #${postIdFiltro}` }
     ]" />
+    <Statistiche />
     <FormCommento v-if="postIdFiltro" :post-id="postIdFiltro" @salva="store.crea" />
     <p v-else class="info">Seleziona un post dalla pagina <button class="btn-secondario" @click="router.push('/post')">Post</button> per aggiungere un commento.</p>
     <CardCommento

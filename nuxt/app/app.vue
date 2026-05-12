@@ -1,12 +1,6 @@
 <template>
   <div>
-    <nav v-if="auth.isLoggato">
-      <NuxtLink to="/utenti">Utenti</NuxtLink>
-      <NuxtLink to="/post">Post</NuxtLink>
-      <NuxtLink to="/commenti">Commenti</NuxtLink>
-      <span style="margin-left: auto">{{ auth.utente?.nome }}</span>
-      <button class="btn-primario" @click="auth.logout()">Logout</button>
-    </nav>
+    <AppNav v-if="auth.isLoggato" />
     <div class="contenitore">
       <NuxtPage />
     </div>

@@ -1,6 +1,7 @@
 <template>
   <div>
     <h1>Utenti</h1>
+    <Statistiche />
 
     <FormUtente
       :utente="store.utenteInModifica"
