@@ -135,10 +135,14 @@ form {
 }
 
 #statistiche {
-  text-align: right;
-  font-size: 0.85rem;
-  color: #6b7280;
-  margin-bottom: 0.75rem;
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: var(--raggio);
+  padding: 0.6rem 1rem;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+  color: #374151;
+  box-shadow: var(--ombra);
 }
 
 .login-container {
